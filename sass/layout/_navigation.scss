@@ -13,6 +13,7 @@
     border-radius: 50%;
     z-index: 1003;
     text-align: center;
+    cursor: pointer;
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
   }
 
@@ -103,7 +104,7 @@
       width: 3rem;
       height: 2px;
       background-color: $color-grey-dark-3;
-      display: block;
+      display: inline-block;
     }
 
     &::before,
@@ -111,6 +112,7 @@
       content: "";
       position: absolute;
       left: 0;
+      transition: all .2s;
     }
 
     &::before {
@@ -120,5 +122,27 @@
     &::after {
       top: .8rem;
     }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+     top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
