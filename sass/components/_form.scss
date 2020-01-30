@@ -18,6 +18,10 @@
     display: block;
     transition: all .3s;
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     &:focus {
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -51,12 +55,21 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__radio-input {
+    display: none;
   }
 
   &__radio-label {
     font-size: $default-font-size;
     cursor: pointer;
-    //position: relative;
+    position: relative;
     padding-left: 4.5rem;
   }
 
@@ -66,7 +79,7 @@
     border: 5px solid $color-primary;
     border-radius: 50%;
     display: inline-block;
-    position: relative;
+    position: absolute;
     left: 0;
     top: -.4rem;
 
@@ -76,7 +89,7 @@
       height: 1.3rem;
       width: 1.3rem;
       border-radius: 50%;
-      position: relative;
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
